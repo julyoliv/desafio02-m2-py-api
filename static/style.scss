@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  color: white;
+  background-color: black;
+}
+
+body {
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header img {
+  width: 3vw;
+  margin-right: 10px;
+  height: auto;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+ul li {
+  font-size: 18px;
+  margin-bottom: 5px;
+}

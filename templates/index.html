@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Books API</title>
+  </head>
+  <body>
+    <div class="header">
+        <img src="{{ url_for('static', filename='assets/books-icon.png') }}" alt="books icon">
+      <h1>Welcome to the VNW's challenge 'Books API'</h1>
+    </div>
+    <h2>How to access the API:</h2>
+    <ul>
+      <li>GET(/books)</li>
+      <li>POST(/donate)</li>
+    </ul>
+  </body>
+</html>
