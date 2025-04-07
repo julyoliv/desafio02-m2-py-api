@@ -1,8 +1,10 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import sqlite3
-from flask import render_template
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
+
 
 
 def init_db():
@@ -51,6 +53,19 @@ def add_book():
                      (new_book['title'], new_book['category'], new_book['author'], new_book['image_url']))
 
     return jsonify({"message": "Book added successfully!"}), 201
+
+@app.route('/books/<int:book_id>', methods=['DELETE'])
+def delete_book(book_id):
+    with sqlite3.connect('database.db') as conn:
+        cursor = conn.cursor()
+        cursor.execute("DELETE FROM livros WHERE id = ?", (book_id,)) 
+        conn.commit()
+
+    if cursor.rowcount == 0:
+        return jsonify({"error": "Book not found"}), 400
+
+    return jsonify({"message": "Book deleted successfully"}), 200
+
 
 if __name__ == '__main__':
     app.run(debug=True)
